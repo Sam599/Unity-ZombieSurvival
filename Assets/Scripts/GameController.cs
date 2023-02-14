@@ -35,6 +35,14 @@ public class GameController : MonoBehaviour
         highTimeSurvivedText = gameOverScreen.transform.GetChild(3).gameObject.GetComponent<Text>(); // NOT PROUD
     }
 
+    void Update()
+    {
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("Menu");
+        }
+    }
+
     public void UpdateLifeBar(int healthPoints)
     {
         lifeBar.value = healthPoints;

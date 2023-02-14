@@ -31,12 +31,12 @@ public class CameraController : MonoBehaviour
                 objectHit = cameraRayImpact.collider.transform.parent.gameObject;
                 objectHit.transform.GetChild(0).gameObject.SetActive(false);
                 objectHit.transform.GetChild(1).gameObject.SetActive(true);
-                Debug.Log("Unblocking view!");
+                //Debug.Log("Unblocking view!");
             } else if (objectHit != null && cameraRayImpact.collider.tag != "Transparent") {
                 objectHit.transform.GetChild(1).gameObject.SetActive(false);
                 objectHit.transform.GetChild(0).gameObject.SetActive(true);
                 objectHit = null;
-                Debug.Log("Returning Object!");
+                //Debug.Log("Returning Object!");
             }
         }
     }

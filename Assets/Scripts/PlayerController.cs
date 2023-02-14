@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour , IKillableObjects
@@ -48,7 +47,7 @@ public class PlayerController : MonoBehaviour , IKillableObjects
         playerMovement.PlayerRotate(aimingLayer);
     }
 
-    public void TakeHit(int hitDamage)
+    public void TakeHit(int hitDamage, Transform objectHit)
     {
         characterStatus.currentHealth -= hitDamage;
         gameController.UpdateLifeBar(characterStatus.currentHealth);

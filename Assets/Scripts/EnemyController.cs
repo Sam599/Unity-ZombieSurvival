@@ -8,6 +8,7 @@ public class EnemyController : MonoBehaviour, IKillableObjects
     GameObject player;
     GameController gameController;
     public GameObject medkitPrefab;
+    public GameObject zombieBlood;
     public float wanderInterval;
     public float itemDropChance = 0.2f;
     float wanderPositionTime;
@@ -53,12 +54,13 @@ public class EnemyController : MonoBehaviour, IKillableObjects
 
     void PlayerHit() //Animation Event
     {
-        player.GetComponent<PlayerController>().TakeHit(characterStatus.hitDamage);
+        player.GetComponent<PlayerController>().TakeHit(characterStatus.hitDamage,transform);
     }
 
-    public void TakeHit(int hitDamage)
+    public void TakeHit(int hitDamage, Transform objectHit)
     {
         characterStatus.currentHealth -= hitDamage;
+        Instantiate(zombieBlood, objectHit.position, Quaternion.LookRotation(-objectHit.forward));
         if (characterStatus.currentHealth <= 0)
         {
             Killed();

@@ -25,10 +25,10 @@ public class BulletController : MonoBehaviour
         switch (other.tag)
         {
             case "Enemy":
-                other.GetComponent<EnemyController>().TakeHit(bulletStatus.hitDamage);
+                other.GetComponent<EnemyController>().TakeHit(bulletStatus.hitDamage,transform);
                 break;
             case "Boss":
-                other.GetComponent<BossController>().TakeHit(bulletStatus.hitDamage);
+                other.GetComponent<BossController>().TakeHit(bulletStatus.hitDamage,transform);
                 break;
         }
         Destroy(gameObject);

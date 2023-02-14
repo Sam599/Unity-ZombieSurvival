@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{28BBA9C8-DEB4-3DCF-DCFA-4A7236070067}</ProjectGuid>
+    <ProjectGuid>{0B63D9B5-BBA1-4F63-E1B0-69101102C770}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -60,6 +60,7 @@
     <Compile Include="Assets\Scripts\MovementManager.cs" />
     <Compile Include="Assets\Scripts\AudioController.cs" />
     <Compile Include="Assets\Scripts\ZombieGenerator.cs" />
+    <Compile Include="Assets\Scripts\CanvasEnemyManager.cs" />
     <Compile Include="Assets\Scripts\CharactersStatus.cs" />
     <Compile Include="Assets\Scripts\HealthItemController.cs" />
     <Compile Include="Assets\Scripts\EnemyController.cs" />
@@ -73,7 +74,7 @@
     <Compile Include="Assets\Scripts\PlayerMovementManager.cs" />
     <Compile Include="Assets\Scripts\BulletController.cs" />
     <Compile Include="Assets\Scripts\IKillableObjects.cs" />
-    <Compile Include="Assets\Scripts\CanvasEnemyManager.cs" />
+    <Compile Include="Assets\Scripts\MainMenuController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Modelos3D\Personagens\Animacoes\Animacoes.txt" />

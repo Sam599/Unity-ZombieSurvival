@@ -8,12 +8,13 @@ public class BossController : MonoBehaviour , IKillableObjects
 {
     public GameObject medkitPrefab;
     public Slider bossLifeBar;
+    public GameObject zombieBlood;
     private NavMeshAgent agent;
     private Transform player;
     private AnimationManager animationManager;
     private GameController gameController;
     private CharactersStatus characterStatus;
-
+    
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -38,9 +39,10 @@ public class BossController : MonoBehaviour , IKillableObjects
         }
         //Debug.Log("Boss has path: " + agent.hasPath + ", Boss Distance: " + agent.remainingDistance);
     }
-    public void TakeHit(int hitDamage)
+    public void TakeHit(int hitDamage, Transform objectHit)
     {
         characterStatus.currentHealth -= hitDamage;
+        Instantiate(zombieBlood, objectHit.position, Quaternion.LookRotation(-objectHit.forward));
         if (characterStatus.currentHealth <= 0)
         {
             Killed();
@@ -48,7 +50,7 @@ public class BossController : MonoBehaviour , IKillableObjects
     }
     void PlayerHit()
     {
-        player.gameObject.GetComponent<PlayerController>().TakeHit(Random.Range(characterStatus.hitDamage - 15, characterStatus.hitDamage));
+        player.gameObject.GetComponent<PlayerController>().TakeHit(Random.Range(characterStatus.hitDamage - 15, characterStatus.hitDamage), transform);
     }
 
     public void Killed()

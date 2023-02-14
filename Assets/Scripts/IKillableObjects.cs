@@ -4,6 +4,6 @@ using UnityEngine;
 
 public interface IKillableObjects
 {
-    void TakeHit(int hitDamage);
+    void TakeHit(int hitDamage,Transform objectHit);
     void Killed();
 }

@@ -47,12 +47,11 @@ public class InterfaceController : MonoBehaviour
     IEnumerator FadeOutText(Text text, float fadeTime)
     {
         text.gameObject.SetActive(true);
-        float fadeInFadeOutTime = fadeTime;
         float timePassed = 0;
         Color originalColor = text.color;
         Color bossTextColor = text.color;
         while (timePassed <= 1) {
-            timePassed += Time.deltaTime / fadeInFadeOutTime;
+            timePassed += Time.deltaTime / fadeTime;
             bossTextColor.a = Mathf.Lerp(1, 0, timePassed);
             text.color = bossTextColor;
             yield return null;

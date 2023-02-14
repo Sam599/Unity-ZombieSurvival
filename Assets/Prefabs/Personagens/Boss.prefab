@@ -449,6 +449,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   medkitPrefab: {fileID: 1060151288946202, guid: 6150c6f66b7034ec5b3672478195682a, type: 3}
   bossLifeBar: {fileID: 914393851}
+  zombieBlood: {fileID: 4088740018476510477, guid: f7f785a0433df1249b482fb1e1239fe6, type: 3}
 --- !u!114 &-1106488230061929239
 MonoBehaviour:
   m_ObjectHideFlags: 0
