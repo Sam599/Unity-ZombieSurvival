@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour , IKillableObjects
 {
-    public float speed = 5;
-    private AnimationManager animationManager;
-    private GameController gameController;
+    private PlayerMovementManager playerMovement;
     private CharactersStatus characterStatus;
-    public GameObject equippedWeapon;
-    public PlayerMovementManager playerMovement;
-    public LayerMask aimingLayer;
+    private AnimationManager animationManager;
     private Vector3 movement;
+    public GameController gameController;
+    public GameObject equippedWeapon;
+    public LayerMask aimingLayer;
+    public float speed = 5;
 
     void Start()
     {
@@ -19,7 +19,6 @@ public class PlayerController : MonoBehaviour , IKillableObjects
         playerMovement = GetComponent<PlayerMovementManager>();
         characterStatus = GetComponent<CharactersStatus>();
 
-        gameController = GameObject.Find("GameController").GetComponent<GameController>();
         gameController.lifeBar.maxValue = characterStatus.maxHealthPoints;
         gameController.UpdateLifeBar(characterStatus.currentHealth);
     }

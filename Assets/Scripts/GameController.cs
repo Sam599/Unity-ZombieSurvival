@@ -23,7 +23,7 @@ public class GameController : MonoBehaviour
     public int numZombieAlive;
     public int numBossAlive;
 
-    void Start()
+    void Awake()
     {
         Time.timeScale = 1;
         gameProgressMgr = GetComponent<GameProgressionManager>();

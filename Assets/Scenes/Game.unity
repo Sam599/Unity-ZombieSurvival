@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.26180893, g: 0.24110997, b: 0.18528882, a: 1}
+  m_IndirectSpecularColor: {r: 0.3503248, g: 0.34971184, b: 0.31490594, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 9f7c30915daaf784b88ba0ce9c84bde9, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -16996,8 +16996,8 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.3715917, g: 0.29028708, b: 0.9716981, a: 1}
-  m_Intensity: 0.83
+  m_Color: {r: 0.58518803, g: 0.5295478, b: 0.990566, a: 1}
+  m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -17039,7 +17039,7 @@ Light:
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 0.4
+  m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
@@ -17054,13 +17054,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1393269696}
-  m_LocalRotation: {x: -0.1589838, y: 0.047092658, z: 0.98597234, w: 0.019107936}
+  m_LocalRotation: {x: -0.1595681, y: 0.0116057, z: 0.98702806, w: 0.0133783715}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: -5.678, y: -18.255, z: 178.693}
+  m_LocalEulerAnglesHint: {x: -1.557, y: -18.349, z: 178.698}
 --- !u!4 &1395492755 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4536050685927626, guid: e8e5a55bd37bb41e798bf87dcdad19b4, type: 3}
@@ -21367,6 +21367,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 293752766688492100, guid: 4b3bb44effa49480d8d18049684cc33a, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 275091803}
     - target: {fileID: 1222536225543206036, guid: 4b3bb44effa49480d8d18049684cc33a, type: 3}
       propertyPath: m_Size.z
       value: 1.8913698

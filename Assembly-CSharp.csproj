@@ -69,12 +69,12 @@
     <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\WeaponController.cs" />
+    <Compile Include="Assets\Scripts\MainMenuController.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\BossController.cs" />
     <Compile Include="Assets\Scripts\PlayerMovementManager.cs" />
     <Compile Include="Assets\Scripts\BulletController.cs" />
     <Compile Include="Assets\Scripts\IKillableObjects.cs" />
-    <Compile Include="Assets\Scripts\MainMenuController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Modelos3D\Personagens\Animacoes\Animacoes.txt" />
