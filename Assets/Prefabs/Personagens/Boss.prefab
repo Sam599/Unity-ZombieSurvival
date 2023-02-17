@@ -488,8 +488,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealthPoints: 20
   currentHealth: 0
-  speed: 6
+  speed: 4
   hitDamage: 50
+  isBoss: 1
 --- !u!195 &976867429
 NavMeshAgent:
   m_ObjectHideFlags: 0

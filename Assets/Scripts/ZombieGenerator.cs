@@ -34,23 +34,28 @@ public class ZombieGenerator : MonoBehaviour
 
             if (generateCounter >= zombieGenerateInterval)
             {
-                if (gameController.spawnZombieBoss) GenerateZombie(bossPrefab, true);
-                else GenerateZombie(zombiePrefab, false);
+                GameObject enemyToGenerate;
+
+                if (gameController.spawnZombieBoss) enemyToGenerate = bossPrefab;
+                else enemyToGenerate = zombiePrefab;
+
+                GenerateZombie(enemyToGenerate);
 
                 zombieGenerateInterval = Random.Range(gameController.minZombieGenerateInverval, gameController.maxZombieGenerateInverval + 1);
             }
         } else generateCounter = 0;
     }
 
-    void GenerateZombie(GameObject prefabSpawn, bool isBoss)
+    void GenerateZombie(GameObject prefabSpawn)
     {
         Collider[] zombieColliders = Physics.OverlapSphere(transform.position, gameController.zombieSpawnRadius, zombieLayerMask);
         if (zombieColliders.Length < 1)
         {
-            Instantiate(prefabSpawn, transform.position, transform.rotation);
-            if (isBoss)
+            GameObject spawnedEnemy = Instantiate(prefabSpawn, transform.position, transform.rotation);
+            //Debug.Log(spawnedEnemy.GetComponent<CharactersStatus>().maxHealthPoints);
+            if (prefabSpawn.GetComponent<CharactersStatus>().isBoss)
             {
-                Debug.Log("Boss Generated!");
+                //Debug.Log("Boss Generated!");
                 gameController.BossSpawned();
             }
             else
@@ -59,8 +64,12 @@ public class ZombieGenerator : MonoBehaviour
                 gameController.numZombieAlive++;
                 gameController.numZombieGenerated++;
             }
-            generateCounter = 0;
+            //Debug.Log(gameController.zombiePowerMultiplier);
+            spawnedEnemy.GetComponent<CharactersStatus>().maxHealthPoints *= gameController.zombiePowerMultiplier;
+            spawnedEnemy.GetComponent<CharactersStatus>().speed *= gameController.zombiePowerMultiplier;
+
         }
+        generateCounter = 0;
     }
 
     void OnDrawGizmos()

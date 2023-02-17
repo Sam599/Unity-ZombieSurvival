@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class CharactersStatus : MonoBehaviour
 {
-    public int maxHealthPoints;
+    public float maxHealthPoints;
     [HideInInspector] 
-    public int currentHealth;
+    public float currentHealth;
     public float speed;
     public int hitDamage;
+    public bool isBoss;
 
     void Awake()
     {

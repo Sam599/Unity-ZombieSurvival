@@ -24,6 +24,7 @@ public class MovementManager : MonoBehaviour
         //}
 
         moveRigidbody.velocity = movement * speed;
+        //Debug.Log(moveRigidbody.velocity);
     }
 
     public void Rotate(Vector3 lookDirection)

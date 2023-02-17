@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour , IKillableObjects
@@ -11,13 +12,14 @@ public class PlayerController : MonoBehaviour , IKillableObjects
     public GameController gameController;
     public GameObject equippedWeapon;
     public LayerMask aimingLayer;
-    public float speed = 5;
+    private float speed;
 
     void Start()
     {
         animationManager = GetComponent<AnimationManager>();
         playerMovement = GetComponent<PlayerMovementManager>();
         characterStatus = GetComponent<CharactersStatus>();
+        speed = characterStatus.speed;
 
         gameController.lifeBar.maxValue = characterStatus.maxHealthPoints;
         gameController.UpdateLifeBar(characterStatus.currentHealth);

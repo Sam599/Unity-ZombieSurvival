@@ -9,6 +9,8 @@ public class GameProgressionManager : MonoBehaviour
     public GameController gameController;
     int bossWaveCounter = 1;
     int zombieLimit;
+    float increaseZombiePowerFlt = 0.2f;
+    int waveZombiePowerCount = 0;
 
     void OnEnable()
     {
@@ -22,13 +24,16 @@ public class GameProgressionManager : MonoBehaviour
         {
             gameController.wave++;
             bossWaveCounter++;
+            waveZombiePowerCount++;
             gameController.numZombieGenerated = 0;
         }
         //Debug.Log("gameController is null? " + (gameController == null));
         int newZombieLimit = gameController.waveMultiplier * gameController.wave * zombieLimit;
         CheckForBossWave();
+        CheckForZombiePowerIncrease();
         gameController.zombieLimit = newZombieLimit;
 
+        
         //Debug.Log(string.Format
         //   ("New Wave, Checking Variables: newZombieLimit: {0}, bossWaveCounter: {1}, bossWave: {2}", newZombieLimit, bossWaveCounter, gameController.bossWave));
     }
@@ -39,6 +44,16 @@ public class GameProgressionManager : MonoBehaviour
         {
             bossWaveCounter = 0;
             gameController.spawnZombieBoss = true;
+        }
+    }
+
+    void CheckForZombiePowerIncrease()
+    {
+        if (waveZombiePowerCount == gameController.waveZombiePower)
+        {
+            waveZombiePowerCount = 0;
+            gameController.zombiePowerMultiplier += increaseZombiePowerFlt;
+            Debug.Log("Zombie Power Increased!");
         }
     }
 }

@@ -13,8 +13,10 @@ public class GameController : MonoBehaviour
     public Slider lifeBar;
     public Text enemiesKilledCounter;
     private Text timeSurvivedText, highTimeSurvivedText, highScoreText;
-    public int zombieLimit, bossLimit, maxZombieGenerateInverval, minZombieGenerateInverval, zombieSpawnRadius, distanceFromPlayerToSpawn, wave, waveMultiplier, bossWave;
+    public int zombieLimit, bossLimit, maxZombieGenerateInverval, minZombieGenerateInverval, zombieSpawnRadius;
+    public int distanceFromPlayerToSpawn, wave, waveMultiplier, bossWave, waveZombiePower;
     private int zombiesKillCounter = 0;
+    public float zombiePowerMultiplier = 1;
     public bool stopZombieGenerateInLimit;
     public bool isGameProgressionActive;
     public bool spawnZombieBoss;
@@ -43,7 +45,7 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void UpdateLifeBar(int healthPoints)
+    public void UpdateLifeBar(float healthPoints)
     {
         lifeBar.value = healthPoints;
         //Debug.Log(lifeBar.value);
@@ -64,7 +66,6 @@ public class GameController : MonoBehaviour
                 if (numZombieAlive == 0 && isGameProgressionActive)
                 {
                     gameProgressMgr.CalculateZombieWave(true);
-
                 }
                 break;
             case "Boss":
@@ -85,6 +86,7 @@ public class GameController : MonoBehaviour
             minZombieGenerateInverval = 0;
             zombieSpawnRadius = 3;
             distanceFromPlayerToSpawn = 15;
+            waveZombiePower = bossWave;
             stopZombieGenerateInLimit = true;
             gameProgressMgr.enabled = true;
             gameProgressMgr.CalculateZombieWave(false);
@@ -95,22 +97,21 @@ public class GameController : MonoBehaviour
     public void PlayerDied()
     {
         Time.timeScale = 0;
-        float survivedTime = Time.timeSinceLevelLoad;
-        float highScore = PlayerPrefs.GetFloat("HighScore");
-        if (survivedTime > highScore)
+        float highScore = PlayerPrefs.GetInt("HighScore");
+        if (wave > highScore)
         {
-            PlayerPrefs.SetFloat("HighScore", survivedTime);
+            PlayerPrefs.SetInt("HighScore", wave);
             highScoreText.text = "NOVO RECORDE!";
             highScoreText.color = Color.red;
-            highTimeSurvivedText.text = FormatSurvivedTimeToString(survivedTime);
+            highTimeSurvivedText.text = "ONDA " + wave.ToString();
             highTimeSurvivedText.color = Color.red;
         }
         else
         {
-            highTimeSurvivedText.text = FormatSurvivedTimeToString(highScore);
+            highTimeSurvivedText.text = highScore.ToString();
         }
 
-        timeSurvivedText.text = FormatSurvivedTimeToString(survivedTime);
+        timeSurvivedText.text = "ONDA " + wave.ToString();
         enemiesKilledCounter.gameObject.SetActive(false);
         lifeBar.gameObject.SetActive(false);
         gameOverScreen.SetActive(true);
@@ -124,16 +125,6 @@ public class GameController : MonoBehaviour
         interfaceController.BossHasAppeared();
     }
 
-    string FormatSurvivedTimeToString(float seconds)
-    {
-        int secAlive = (int)seconds % 60;
-        int minAlive = (int)seconds / 60;
-        int hourAlive = minAlive / 60;
-        string timeSurvivedString = string.Format("{0}:{1}:{2}", hourAlive.ToString("D2"), minAlive.ToString("D2"), secAlive.ToString("D2"));
-
-        return timeSurvivedString;
-    }
-
     public void RestartGame()
     {
         SceneManager.LoadScene("Game");
@@ -141,7 +132,7 @@ public class GameController : MonoBehaviour
 
     public void RestartScore()
     {
-        PlayerPrefs.SetFloat("HighScore", 0);
+        PlayerPrefs.SetInt("HighScore", 0);
         highScoreText.text = "RECORDE RESETADO!";
         highScoreText.color = Color.blue;
         highTimeSurvivedText.text = "00:00:00";

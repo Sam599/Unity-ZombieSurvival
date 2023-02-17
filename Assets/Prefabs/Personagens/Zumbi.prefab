@@ -705,6 +705,7 @@ MonoBehaviour:
   currentHealth: 0
   speed: 5
   hitDamage: 20
+  isBoss: 0
 --- !u!1 &1065480718027956
 GameObject:
   m_ObjectHideFlags: 0

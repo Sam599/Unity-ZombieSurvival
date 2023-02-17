@@ -474,7 +474,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 00:00:00
+  m_Text: ONDA 0
 --- !u!222 &77246143
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1632,7 +1632,9 @@ MonoBehaviour:
   distanceFromPlayerToSpawn: 12
   wave: 1
   waveMultiplier: 10
-  bossWave: 2
+  bossWave: 1
+  waveZombiePower: 2
+  zombiePowerMultiplier: 1
   stopZombieGenerateInLimit: 0
   isGameProgressionActive: 1
   spawnZombieBoss: 0
@@ -6044,7 +6046,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 00:00:00
+  m_Text: ONDA 0
 --- !u!222 &687762977
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13836,7 +13838,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Voc\xEA Morreu!\nSobreviveu por: "
+  m_Text: "Voc\xEA Morreu!\nSobreviveu at\xE9:"
 --- !u!222 &1054367490
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -21371,13 +21373,13 @@ PrefabInstance:
       propertyPath: gameController
       value: 
       objectReference: {fileID: 275091803}
-    - target: {fileID: 1222536225543206036, guid: 4b3bb44effa49480d8d18049684cc33a, type: 3}
-      propertyPath: m_Size.z
-      value: 1.8913698
+    - target: {fileID: 7018576959102562173, guid: 4b3bb44effa49480d8d18049684cc33a, type: 3}
+      propertyPath: m_Height
+      value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 1222536225543206036, guid: 4b3bb44effa49480d8d18049684cc33a, type: 3}
-      propertyPath: m_Center.z
-      value: 0.4456849
+    - target: {fileID: 8667574013192243891, guid: 4b3bb44effa49480d8d18049684cc33a, type: 3}
+      propertyPath: speed
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b3bb44effa49480d8d18049684cc33a, type: 3}
