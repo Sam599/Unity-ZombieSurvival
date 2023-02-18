@@ -11,11 +11,11 @@ public class GameController : MonoBehaviour
     InterfaceController interfaceController;
     public GameObject gameOverScreen;
     public Slider lifeBar;
-    public Text enemiesKilledCounter;
+    public Text enemiesAliveCounter;
+    public Text waveNumber;
     private Text timeSurvivedText, highTimeSurvivedText, highScoreText;
     public int zombieLimit, bossLimit, maxZombieGenerateInverval, minZombieGenerateInverval, zombieSpawnRadius;
     public int distanceFromPlayerToSpawn, wave, waveMultiplier, bossWave, waveZombiePower;
-    private int zombiesKillCounter = 0;
     public float zombiePowerMultiplier = 1;
     public bool stopZombieGenerateInLimit;
     public bool isGameProgressionActive;
@@ -43,6 +43,7 @@ public class GameController : MonoBehaviour
         {
             SceneManager.LoadScene("Menu");
         }
+        UpdateZombiesAliveCounter();
     }
 
     public void UpdateLifeBar(float healthPoints)
@@ -51,10 +52,15 @@ public class GameController : MonoBehaviour
         //Debug.Log(lifeBar.value);
     }
 
-    public void IncreaseKillCounter()
+    public void UpdateWaveNumber()
     {
-        zombiesKillCounter++;
-        enemiesKilledCounter.text = "x " + zombiesKillCounter.ToString("D3");
+        waveNumber.text = wave.ToString("D2");
+    }
+
+    public void UpdateZombiesAliveCounter()
+    {
+        int numTotalZombieAlive = numZombieAlive + numBossAlive;
+        enemiesAliveCounter.text = numTotalZombieAlive.ToString("D2");
     }
 
     public void EnemyKilled(string tag)
@@ -66,6 +72,7 @@ public class GameController : MonoBehaviour
                 if (numZombieAlive == 0 && isGameProgressionActive)
                 {
                     gameProgressMgr.CalculateZombieWave(true);
+                    UpdateWaveNumber();
                 }
                 break;
             case "Boss":
@@ -90,6 +97,7 @@ public class GameController : MonoBehaviour
             stopZombieGenerateInLimit = true;
             gameProgressMgr.enabled = true;
             gameProgressMgr.CalculateZombieWave(false);
+            UpdateWaveNumber();
         }
         generatorReady = true;
     }
@@ -97,7 +105,7 @@ public class GameController : MonoBehaviour
     public void PlayerDied()
     {
         Time.timeScale = 0;
-        float highScore = PlayerPrefs.GetInt("HighScore");
+        int highScore = PlayerPrefs.GetInt("HighScore");
         if (wave > highScore)
         {
             PlayerPrefs.SetInt("HighScore", wave);
@@ -108,11 +116,11 @@ public class GameController : MonoBehaviour
         }
         else
         {
-            highTimeSurvivedText.text = highScore.ToString();
+            highTimeSurvivedText.text = "ONDA " + highScore.ToString();
         }
 
-        timeSurvivedText.text = "ONDA " + wave.ToString();
-        enemiesKilledCounter.gameObject.SetActive(false);
+        timeSurvivedText.text = "ONDA " + wave.ToString("D2");
+        enemiesAliveCounter.gameObject.SetActive(false);
         lifeBar.gameObject.SetActive(false);
         gameOverScreen.SetActive(true);
         //Debug.Log("Player Died!");
@@ -132,10 +140,10 @@ public class GameController : MonoBehaviour
 
     public void RestartScore()
     {
-        PlayerPrefs.SetInt("HighScore", 0);
+        PlayerPrefs.SetInt("HighScore", wave);
         highScoreText.text = "RECORDE RESETADO!";
         highScoreText.color = Color.blue;
-        highTimeSurvivedText.text = "00:00:00";
+        highTimeSurvivedText.text = "ONDA " + wave.ToString("D2");
         highTimeSurvivedText.color = Color.blue;
     }
 }

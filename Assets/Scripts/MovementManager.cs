@@ -24,14 +24,16 @@ public class MovementManager : MonoBehaviour
         //}
 
         moveRigidbody.velocity = movement * speed;
+        if (movement != Vector3.zero)
+        {
+            moveRigidbody.MoveRotation(Quaternion.LookRotation(movement));
+        }
         //Debug.Log(moveRigidbody.velocity);
     }
 
     public void Rotate(Vector3 lookDirection)
     {
-        Quaternion rotation = Quaternion.LookRotation(lookDirection);
-
-        moveRigidbody.MoveRotation(rotation);
+        moveRigidbody.MoveRotation(Quaternion.LookRotation(lookDirection));
     }
 
     public float GetObjectVelocity()

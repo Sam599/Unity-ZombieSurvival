@@ -60,7 +60,6 @@ public class BossController : MonoBehaviour , IKillableObjects
         //Debug.Log("Zombie Killed!");
         Instantiate(medkitPrefab, transform.position, Quaternion.identity);
         gameController.EnemyKilled(this.tag);
-        gameController.IncreaseKillCounter();
         gameObject.GetComponent<CapsuleCollider>().enabled = false;
         animationManager.DyingAnim();
 
