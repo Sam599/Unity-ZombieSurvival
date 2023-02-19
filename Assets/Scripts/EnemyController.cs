@@ -13,6 +13,7 @@ public class EnemyController : MonoBehaviour, IKillableObjects
     public float itemDropChance = 0.2f;
     float wanderPositionTime;
     float playerDistance;
+    bool playerSpotted;
 
     private AnimationManager animationManager;
     private MovementManager movementManager;
@@ -85,6 +86,7 @@ public class EnemyController : MonoBehaviour, IKillableObjects
             else if (playerDistance >= 2.5)
             {
                 animationManager.AttackAnim(false);
+                PlayerSpotted();
                 movementManager.Move(endPosition.normalized, characterStatus.speed);
             }
             else
@@ -93,7 +95,8 @@ public class EnemyController : MonoBehaviour, IKillableObjects
                 movementManager.Rotate(endPosition);
                 animationManager.AttackAnim(true);
             }
-        } else movementManager.Move(transform.forward, 0);
+        }
+        else movementManager.Move(transform.forward, 0);
     }
 
     void Wander()
@@ -105,7 +108,16 @@ public class EnemyController : MonoBehaviour, IKillableObjects
             Vector3 wanderPosition = GenerateRandomLocation(transform.position);
             movementManager.Move(wanderPosition.normalized, characterStatus.speed);
             wanderPositionTime = 0;
-        } 
+        }
+    }
+
+    void PlayerSpotted()
+    {
+        if (!playerSpotted)
+        {
+            AudioController.instance.PlayZombieSpottedSound();
+            playerSpotted = true;
+        }
     }
 
     Vector3 GenerateRandomLocation(Vector3 position)

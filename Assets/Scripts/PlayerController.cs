@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour , IKillableObjects
+public class PlayerController : MonoBehaviour, IKillableObjects
 {
     private PlayerMovementManager playerMovement;
     private CharactersStatus characterStatus;
@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour , IKillableObjects
     public GameObject equippedWeapon;
     public LayerMask aimingLayer;
     private float speed;
+    private bool playerWalking;
+    private bool playerAttacked;
 
     void Start()
     {
@@ -38,13 +40,15 @@ public class PlayerController : MonoBehaviour , IKillableObjects
 
         if (Input.GetButtonDown("Fire1") && Time.timeScale != 0)
         {
-            Attack();
+            playerAttacked = true;
         }
     }
 
     private void FixedUpdate()
     {
-        playerMovement.Move(movement,speed);
+        playerMovement.Move(movement, speed);
+        Attack();
+        PlayerWalking();
         playerMovement.PlayerRotate(aimingLayer);
     }
 
@@ -69,12 +73,23 @@ public class PlayerController : MonoBehaviour , IKillableObjects
 
     public void Attack()
     {
-        if (equippedWeapon.GetComponent<WeaponController>().ShootWeapon()) 
+        if (playerAttacked && equippedWeapon.GetComponent<WeaponController>().ShootWeapon())
+        {
             animationManager.ShootAnim(true);
+            playerAttacked = false;
+        }
     }
 
     public void Killed()
     {
         gameController.PlayerDied();
+    }
+
+    void PlayerWalking()
+    {
+        if(movement.magnitude > 0.3f)
+        {
+            AudioController.instance.PlayFootStepSound();
+        }
     }
 }

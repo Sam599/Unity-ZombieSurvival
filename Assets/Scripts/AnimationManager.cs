@@ -27,6 +27,7 @@ public class AnimationManager : MonoBehaviour
     {
         mainAnimator.SetFloat("isMoving", isMoving);
     }
+
     public void DyingAnim()
     {
         mainAnimator.SetTrigger("Dying");

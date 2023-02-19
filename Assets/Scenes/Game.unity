@@ -16115,7 +16115,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 5871f024828e3bb4b83f3ec3f3300b3e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 0cd01c394da06054e9a728e8e43298c7, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -16228,8 +16228,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotSound: {fileID: 8300000, guid: a7ef3ea224a5c114bbefeea2dec5cb83, type: 3}
-  zombieDeathSound: {fileID: 8300000, guid: b9a1dfd5bf9c58a40b23140ffa34b7a8, type: 3}
-  playerHitSound: {fileID: 8300000, guid: 95f2fe07fe17a85478f9eb7b5c32cba1, type: 3}
+  zombieDeathSound:
+  - {fileID: 8300000, guid: 9cc3401810987bc48939d55ecb5215dd, type: 3}
+  - {fileID: 8300000, guid: 6265bd727f1358a4eaf9276edd4e1103, type: 3}
+  - {fileID: 8300000, guid: 4dd95883d8eda9a468d3da88db8f16c3, type: 3}
+  - {fileID: 8300000, guid: 6327db46ff0b6d84ea0eaa5c28625f5c, type: 3}
+  zombieSpottedSound:
+  - {fileID: 8300000, guid: 41698447179102c4f897a0a9d2133374, type: 3}
+  - {fileID: 8300000, guid: c4259d7a18bd42e459f938ddb804356b, type: 3}
+  - {fileID: 8300000, guid: 557dc9d607eee824d9141d46a55a7af1, type: 3}
+  - {fileID: 8300000, guid: 85b3af785bca80b4286e1eb9cf918088, type: 3}
+  playerHitSound:
+  - {fileID: 8300000, guid: a7ef3ea224a5c114bbefeea2dec5cb83, type: 3}
+  shellDropSound:
+  - {fileID: 8300000, guid: 2f8d4d88a6a398b4b9c91499d80418b9, type: 3}
+  - {fileID: 8300000, guid: 503186cd047800f4b9f1338013eab12b, type: 3}
+  - {fileID: 8300000, guid: 3a66c6bad72094a419033735c28d5453, type: 3}
+  footStepSound:
+  - {fileID: 8300000, guid: 8d9cbddc00b66ed45a684ba387b68871, type: 3}
+  - {fileID: 8300000, guid: bdb766a120d6d0a45b59aaa6e263bb03, type: 3}
+  - {fileID: 8300000, guid: c075389b768938543890f651632e41b5, type: 3}
+  - {fileID: 8300000, guid: 181f184eebc06274fb30ea8c6933377e, type: 3}
 --- !u!1001 &1334173988
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21482,6 +21501,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 980775501, guid: 4b3bb44effa49480d8d18049684cc33a, type: 3}
+      propertyPath: bulletCapParticles
+      value: 
+      objectReference: {fileID: 1728904379376152929, guid: f9c7ff0e4e831714b93217fa47590fff, type: 3}
     - target: {fileID: 1791774793, guid: 4b3bb44effa49480d8d18049684cc33a, type: 3}
       propertyPath: m_Controller
       value: 

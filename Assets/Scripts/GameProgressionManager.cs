@@ -33,9 +33,6 @@ public class GameProgressionManager : MonoBehaviour
         CheckForZombiePowerIncrease();
         gameController.zombieLimit = newZombieLimit;
 
-        
-        //Debug.Log(string.Format
-        //   ("New Wave, Checking Variables: newZombieLimit: {0}, bossWaveCounter: {1}, bossWave: {2}", newZombieLimit, bossWaveCounter, gameController.bossWave));
     }
 
     void CheckForBossWave()
