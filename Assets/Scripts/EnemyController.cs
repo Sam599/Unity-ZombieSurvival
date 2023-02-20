@@ -35,6 +35,12 @@ public class EnemyController : MonoBehaviour, IKillableObjects
         MoveRotateEnemy(player.transform.position);
     }
 
+    void FallToDeath()
+    {
+        AudioController.instance.PlayZombieFallSound();
+        Debug.Log("Play Fall Sound");
+    }
+
     void PlayerHit() //Animation Event
     {
         player.GetComponent<PlayerController>().TakeHit(characterStatus.hitDamage, transform);

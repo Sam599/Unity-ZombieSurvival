@@ -5508,7 +5508,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 187, y: -21.784973}
+  m_AnchoredPosition: {x: 187, y: -21.784912}
   m_SizeDelta: {x: 329.95312, y: 128.1029}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &656664268
@@ -6333,7 +6333,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -43.602, y: -144}
+  m_AnchoredPosition: {x: -43.60205, y: -144}
   m_SizeDelta: {x: 292.2976, y: 264.5284}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &728765781
@@ -16238,6 +16238,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: c4259d7a18bd42e459f938ddb804356b, type: 3}
   - {fileID: 8300000, guid: 557dc9d607eee824d9141d46a55a7af1, type: 3}
   - {fileID: 8300000, guid: 85b3af785bca80b4286e1eb9cf918088, type: 3}
+  zombieFallSound:
+  - {fileID: 8300000, guid: 079ad03e07c6bce46bd482f1615beefa, type: 3}
+  - {fileID: 8300000, guid: 2f15575001c43c7449023f65db37d591, type: 3}
+  - {fileID: 8300000, guid: a6e0013e465636d44bdf64e0c014649b, type: 3}
+  - {fileID: 8300000, guid: 452b3cead830b774e8ff8db2f0548984, type: 3}
   playerHitSound:
   - {fileID: 8300000, guid: a7ef3ea224a5c114bbefeea2dec5cb83, type: 3}
   shellDropSound:
@@ -16249,6 +16254,22 @@ MonoBehaviour:
   - {fileID: 8300000, guid: bdb766a120d6d0a45b59aaa6e263bb03, type: 3}
   - {fileID: 8300000, guid: c075389b768938543890f651632e41b5, type: 3}
   - {fileID: 8300000, guid: 181f184eebc06274fb30ea8c6933377e, type: 3}
+  bossSpawnSound:
+  - {fileID: 8300000, guid: e76099356e59e7a4fb6dc89059e0bf3b, type: 3}
+  - {fileID: 8300000, guid: eb77a95192d7fcd4cbea8db3fb25eb44, type: 3}
+  - {fileID: 8300000, guid: 740ced4e23fe2a041a98b1a29e19fcc1, type: 3}
+  bossAttackSound:
+  - {fileID: 8300000, guid: e926d75e5f379fd4586148ae795cada2, type: 3}
+  - {fileID: 8300000, guid: c889df347be5a4046bf6e71a6e0019d3, type: 3}
+  - {fileID: 8300000, guid: f56bc8be1ecd47e4982308ebab8f0bdd, type: 3}
+  bossDeathSound:
+  - {fileID: 8300000, guid: f304cd6c8543ca245aacaca2dfcd0a04, type: 3}
+  - {fileID: 8300000, guid: 06f66a049f9aca64fa9e2ecb5c2284a6, type: 3}
+  bossHitSound:
+  - {fileID: 8300000, guid: 157ff590c90f4164eadddc22b850fff2, type: 3}
+  - {fileID: 8300000, guid: 6eebac6ba8f69e34eb54acdfa0988a43, type: 3}
+  - {fileID: 8300000, guid: 7da3785529c1fd942a81dc6be9394b34, type: 3}
+  - {fileID: 8300000, guid: 7fb0872f4c9d80d49b7b97ff7ccfe57f, type: 3}
 --- !u!1001 &1334173988
 PrefabInstance:
   m_ObjectHideFlags: 0

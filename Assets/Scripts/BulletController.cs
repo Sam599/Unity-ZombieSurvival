@@ -8,7 +8,7 @@ public class BulletController : MonoBehaviour
     private CharactersStatus bulletStatus;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         bulletRigidbody = GetComponent<Rigidbody>();
         bulletStatus = GetComponent<CharactersStatus>();
@@ -22,6 +22,7 @@ public class BulletController : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
+        Debug.Log(other == null);
         switch (other.tag)
         {
             case "Enemy":

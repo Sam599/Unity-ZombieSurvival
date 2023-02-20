@@ -34,8 +34,6 @@ public class PlayerController : MonoBehaviour, IKillableObjects
         float axisZ = Input.GetAxisRaw("Vertical");
 
         movement = new Vector3(axisX, 0, axisZ).normalized;
-
-        animationManager.ShootAnim(false);
         animationManager.MovementAnim(movement.magnitude);
 
         if (Input.GetButtonDown("Fire1") && Time.timeScale != 0)
@@ -46,6 +44,7 @@ public class PlayerController : MonoBehaviour, IKillableObjects
 
     private void FixedUpdate()
     {
+        animationManager.ShootAnim(false);
         playerMovement.Move(movement, speed);
         Attack();
         PlayerWalking();

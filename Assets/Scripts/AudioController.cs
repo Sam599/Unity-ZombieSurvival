@@ -10,9 +10,14 @@ public class AudioController : MonoBehaviour
     public AudioClip shotSound;
     public AudioClip[] zombieDeathSound;
     public AudioClip[] zombieSpottedSound;
+    public AudioClip[] zombieFallSound;
     public AudioClip[] playerHitSound;
     public AudioClip[] shellDropSound;
     public AudioClip[] footStepSound;
+    public AudioClip[] bossSpawnSound;
+    public AudioClip[] bossAttackSound;
+    public AudioClip[] bossDeathSound;
+    public AudioClip[] bossHitSound;
 
     bool playerWalkingSound;
 
@@ -37,6 +42,31 @@ public class AudioController : MonoBehaviour
         audioSource.PlayOneShot(RandomizeSound(zombieSpottedSound),0.5f);
     }
 
+    public void PlayZombieFallSound()
+    {
+        audioSource.PlayOneShot(RandomizeSound(zombieFallSound), 0.5f);
+    }
+
+    public void PlayBossSpawnSound()
+    {
+        audioSource.PlayOneShot(RandomizeSound(bossSpawnSound), 0.5f);
+    }
+
+    public void PlayBossAttackSound()
+    {
+        audioSource.PlayOneShot(RandomizeSound(bossAttackSound), 0.5f);
+    }
+
+    public void PlayBossDeathSound()
+    {
+        audioSource.PlayOneShot(RandomizeSound(bossDeathSound), 0.5f);
+    }
+
+    public void PlayBossHitSound()
+    {
+        audioSource.PlayOneShot(RandomizeSound(bossHitSound), 0.5f);
+    }
+
     public void PlayPlayerHitSound()
     {
         audioSource.PlayOneShot(RandomizeSound(playerHitSound));
@@ -45,7 +75,6 @@ public class AudioController : MonoBehaviour
     public void PlayShellDropSound()
     {
         audioSource.PlayOneShot(RandomizeSound(shellDropSound),0.3f);
-        //Debug.Log("Calling Shell Drop Sound!");
     }
 
     public void PlayFootStepSound()
@@ -55,7 +84,6 @@ public class AudioController : MonoBehaviour
             AudioClip footStepSelect = RandomizeSound(footStepSound);
             audioSource.PlayOneShot(footStepSelect);
             StartCoroutine(WaitForSoundEnd(footStepSelect));
-            Debug.Log(playerWalkingSound);
         }
     }
 
@@ -70,7 +98,6 @@ public class AudioController : MonoBehaviour
     {
         playerWalkingSound = true;
         yield return new WaitForSeconds(sound.length);
-        Debug.Log("Ready To Play Sound Again!");
         playerWalkingSound = false;
     }
 

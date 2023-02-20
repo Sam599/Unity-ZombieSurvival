@@ -14,6 +14,8 @@ public class BossController : MonoBehaviour , IKillableObjects
     private AnimationManager animationManager;
     private GameController gameController;
     private CharactersStatus characterStatus;
+
+    private int bossHitCounter = 3;
     
     private void Start()
     {
@@ -22,6 +24,7 @@ public class BossController : MonoBehaviour , IKillableObjects
         animationManager = GetComponent<AnimationManager>();
         characterStatus = GetComponent<CharactersStatus>();
         gameController = GameObject.Find("GameController").GetComponent<GameController>();
+        AudioController.instance.PlayBossSpawnSound();
     }
 
     private void Update()
@@ -30,7 +33,7 @@ public class BossController : MonoBehaviour , IKillableObjects
         {
             agent.SetDestination(player.position);
             animationManager.MovementAnim(agent.velocity.magnitude);
-
+            
             if (agent.hasPath && agent.remainingDistance <= agent.stoppingDistance) {
                 animationManager.AttackAnim(true);
                 Vector3 playerDirection = player.position - transform.position;
@@ -43,20 +46,38 @@ public class BossController : MonoBehaviour , IKillableObjects
     {
         characterStatus.currentHealth -= hitDamage;
         Instantiate(zombieBlood, objectHit.position, Quaternion.LookRotation(-objectHit.forward));
+        PlayHitSound();
         if (characterStatus.currentHealth <= 0)
         {
             Killed();
         }
     }
+
+    void FallToDeath()
+    {
+        AudioController.instance.PlayZombieFallSound();
+    }
+
     void PlayerHit()
     {
+        AudioController.instance.PlayBossAttackSound();
         player.gameObject.GetComponent<PlayerController>().TakeHit(Random.Range(characterStatus.hitDamage - 15, characterStatus.hitDamage), transform);
+    }
+
+    void PlayHitSound()
+    {
+        if(bossHitCounter > 3)
+        {
+            AudioController.instance.PlayBossHitSound();
+            bossHitCounter = 0;
+        }
+        bossHitCounter++;
     }
 
     public void Killed()
     {
         agent.ResetPath();
-        AudioController.instance.PlayZombieDeathSound();
+        AudioController.instance.PlayBossDeathSound();
         //Debug.Log("Zombie Killed!");
         Instantiate(medkitPrefab, transform.position, Quaternion.identity);
         gameController.EnemyKilled(this.tag);

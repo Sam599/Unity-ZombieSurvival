@@ -20,7 +20,6 @@ public class AnimationManager : MonoBehaviour
     public void ShootAnim(bool shoot)
     {
         mainAnimator.SetBool("shoot", shoot);
-        mainAnimator.speed = 1.2f;
     }
 
     public void MovementAnim(float isMoving)
