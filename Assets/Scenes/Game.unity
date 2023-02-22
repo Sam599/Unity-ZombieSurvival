@@ -1633,9 +1633,9 @@ MonoBehaviour:
   distanceFromPlayerToSpawn: 12
   wave: 1
   waveMultiplier: 10
-  bossWave: 1
+  bossWave: 3
   waveZombiePower: 2
-  zombiePowerMultiplier: 1
+  zombiePower: 0
   stopZombieGenerateInLimit: 0
   isGameProgressionActive: 1
   spawnZombieBoss: 0
@@ -3044,7 +3044,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1791774799}
-  m_RootOrder: 24
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 91.302, y: 0, z: 0}
 --- !u!108 &384753081
 Light:
@@ -16115,7 +16115,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 0cd01c394da06054e9a728e8e43298c7, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 5c0d2cfe3d846f44a905214a243e52ec, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -16228,6 +16228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotSound: {fileID: 8300000, guid: a7ef3ea224a5c114bbefeea2dec5cb83, type: 3}
+  gameOverMusic: {fileID: 8300000, guid: 987dfa9ce8841414880e5d5ca2e98ffd, type: 3}
   zombieDeathSound:
   - {fileID: 8300000, guid: 9cc3401810987bc48939d55ecb5215dd, type: 3}
   - {fileID: 8300000, guid: 6265bd727f1358a4eaf9276edd4e1103, type: 3}
@@ -16244,7 +16245,13 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a6e0013e465636d44bdf64e0c014649b, type: 3}
   - {fileID: 8300000, guid: 452b3cead830b774e8ff8db2f0548984, type: 3}
   playerHitSound:
-  - {fileID: 8300000, guid: a7ef3ea224a5c114bbefeea2dec5cb83, type: 3}
+  - {fileID: 8300000, guid: 3b54e4f1703ed2a4fb9b763ba0065c0a, type: 3}
+  - {fileID: 8300000, guid: 6cb9d8b03544c2d4b93539bd12eb8a09, type: 3}
+  - {fileID: 8300000, guid: 09dce96886624cc4ba7d33460f6adb30, type: 3}
+  - {fileID: 8300000, guid: 672f44ad2219c5247af095fe1c5b6404, type: 3}
+  playerDeathSound:
+  - {fileID: 8300000, guid: 73f10b07e5659104e825fbf80335c403, type: 3}
+  - {fileID: 8300000, guid: 87696e16a7c45854aa5e556db9e1c3b1, type: 3}
   shellDropSound:
   - {fileID: 8300000, guid: 2f8d4d88a6a398b4b9c91499d80418b9, type: 3}
   - {fileID: 8300000, guid: 503186cd047800f4b9f1338013eab12b, type: 3}
@@ -21530,6 +21537,22 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 03e1875f4d81cd9469fcf79ac8e9adb9, type: 2}
+    - target: {fileID: 2002798312, guid: 4b3bb44effa49480d8d18049684cc33a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1217509271739582, guid: 4b3bb44effa49480d8d18049684cc33a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1360408787364202, guid: 4b3bb44effa49480d8d18049684cc33a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1451293854594130, guid: 4b3bb44effa49480d8d18049684cc33a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1884102019447498, guid: 4b3bb44effa49480d8d18049684cc33a, type: 3}
       propertyPath: m_Name
       value: Player
@@ -21582,9 +21605,41 @@ PrefabInstance:
       propertyPath: gameController
       value: 
       objectReference: {fileID: 275091803}
+    - target: {fileID: 293752766688492100, guid: 4b3bb44effa49480d8d18049684cc33a, type: 3}
+      propertyPath: OnPlayerDeath.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 293752766688492100, guid: 4b3bb44effa49480d8d18049684cc33a, type: 3}
+      propertyPath: OnPlayerDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 293752766688492100, guid: 4b3bb44effa49480d8d18049684cc33a, type: 3}
+      propertyPath: OnPlayerDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1331442001}
+    - target: {fileID: 293752766688492100, guid: 4b3bb44effa49480d8d18049684cc33a, type: 3}
+      propertyPath: OnPlayerDeath.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 293752766688492100, guid: 4b3bb44effa49480d8d18049684cc33a, type: 3}
+      propertyPath: OnPlayerDeath.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GameOver
+      objectReference: {fileID: 0}
+    - target: {fileID: 293752766688492100, guid: 4b3bb44effa49480d8d18049684cc33a, type: 3}
+      propertyPath: OnPlayerDeath.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: AudioController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 293752766688492100, guid: 4b3bb44effa49480d8d18049684cc33a, type: 3}
+      propertyPath: OnPlayerDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7018576959102562173, guid: 4b3bb44effa49480d8d18049684cc33a, type: 3}
       propertyPath: m_Height
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7627176880004451672, guid: 4b3bb44effa49480d8d18049684cc33a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8667574013192243891, guid: 4b3bb44effa49480d8d18049684cc33a, type: 3}
       propertyPath: speed

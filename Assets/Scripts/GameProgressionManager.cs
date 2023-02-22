@@ -6,16 +6,20 @@ public class GameProgressionManager : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public GameController gameController;
+    [SerializeField] private GameController gameController;
+    
     int bossWaveCounter = 1;
     int zombieLimit;
-    float increaseZombiePowerFlt = 0.2f;
     int waveZombiePowerCount = 0;
+    int powerUpCount = 0;
+    int newZombieLimit;
+    int waveCounter;
 
     void OnEnable()
     {
         gameController = GetComponent<GameController>();
         zombieLimit = gameController.zombieLimit;
+        waveCounter = gameController.wave;
     }
 
     public void CalculateZombieWave(bool waveEnded)
@@ -23,14 +27,15 @@ public class GameProgressionManager : MonoBehaviour
         if (waveEnded)
         {
             gameController.wave++;
+            waveCounter++;
             bossWaveCounter++;
             waveZombiePowerCount++;
             gameController.numZombieGenerated = 0;
         }
         //Debug.Log("gameController is null? " + (gameController == null));
-        int newZombieLimit = gameController.waveMultiplier * gameController.wave * zombieLimit;
         CheckForBossWave();
         CheckForZombiePowerIncrease();
+        newZombieLimit = gameController.waveMultiplier * waveCounter * zombieLimit;
         gameController.zombieLimit = newZombieLimit;
 
     }
@@ -49,8 +54,10 @@ public class GameProgressionManager : MonoBehaviour
         if (waveZombiePowerCount == gameController.waveZombiePower)
         {
             waveZombiePowerCount = 0;
-            gameController.zombiePowerMultiplier += increaseZombiePowerFlt;
-            Debug.Log("Zombie Power Increased!");
+            waveCounter = 1;
+            powerUpCount++;
+            gameController.zombiePower = powerUpCount;
+            Debug.Log("Zombie Power Increased! PowerUpCount: " + gameController.zombiePower);
         }
     }
 }

@@ -22,16 +22,13 @@ public class BulletController : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other == null);
-        switch (other.tag)
+        IKillableObjects killable = other.GetComponent<IKillableObjects>();
+        if (killable != null)
         {
-            case "Enemy":
-                other.GetComponent<EnemyController>().TakeHit(bulletStatus.hitDamage,transform);
-                break;
-            case "Boss":
-                other.GetComponent<BossController>().TakeHit(bulletStatus.hitDamage,transform);
-                break;
+            killable.TakeHit(bulletStatus.hitDamage, transform);
         }
         Destroy(gameObject);
     }
+    
 }
+

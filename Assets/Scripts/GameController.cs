@@ -16,7 +16,7 @@ public class GameController : MonoBehaviour
     private Text timeSurvivedText, highTimeSurvivedText, highScoreText;
     public int zombieLimit, bossLimit, maxZombieGenerateInverval, minZombieGenerateInverval, zombieSpawnRadius;
     public int distanceFromPlayerToSpawn, wave, waveMultiplier, bossWave, waveZombiePower;
-    public float zombiePowerMultiplier = 1;
+    public int zombiePower = 0;
     public bool stopZombieGenerateInLimit;
     public bool isGameProgressionActive;
     public bool spawnZombieBoss;

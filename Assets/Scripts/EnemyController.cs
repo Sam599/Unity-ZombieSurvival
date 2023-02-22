@@ -10,7 +10,7 @@ public class EnemyController : MonoBehaviour, IKillableObjects
     public GameObject medkitPrefab;
     public GameObject zombieBlood;
     public float wanderInterval;
-    public float itemDropChance = 0.2f;
+    public float itemDropChance = 0.1f;
     float wanderPositionTime;
     float playerDistance;
     bool playerSpotted;
@@ -18,6 +18,9 @@ public class EnemyController : MonoBehaviour, IKillableObjects
     private AnimationManager animationManager;
     private MovementManager movementManager;
     private CharactersStatus characterStatus;
+
+    public delegate void OnPlayerGrab(bool grab);
+    public static event OnPlayerGrab onPlayerGrab;
 
     void Start()
     {
@@ -29,6 +32,7 @@ public class EnemyController : MonoBehaviour, IKillableObjects
         player = GameObject.FindWithTag("Player");
         playerDistance = Vector3.Distance(player.transform.position, transform.position);
         RandomizeZombieSkin();
+        SetZombiePower();
     }
     void FixedUpdate()
     {
@@ -38,7 +42,7 @@ public class EnemyController : MonoBehaviour, IKillableObjects
     void FallToDeath()
     {
         AudioController.instance.PlayZombieFallSound();
-        Debug.Log("Play Fall Sound");
+        //Debug.Log("Play Fall Sound");
     }
 
     void PlayerHit() //Animation Event
@@ -65,6 +69,7 @@ public class EnemyController : MonoBehaviour, IKillableObjects
             Instantiate(medkitPrefab, transform.position, Quaternion.identity);
         }
         gameController.EnemyKilled(this.tag);
+        onPlayerGrab?.Invoke(false);
         gameObject.GetComponent<CapsuleCollider>().enabled = false;
         animationManager.DyingAnim();
 
@@ -93,11 +98,12 @@ public class EnemyController : MonoBehaviour, IKillableObjects
             {
                 animationManager.AttackAnim(false);
                 PlayerSpotted();
+                onPlayerGrab?.Invoke(false);
                 movementManager.Move(endPosition.normalized, characterStatus.speed);
             }
             else
             {
-                //Debug.Log("Attack! Distance: " + playerDistance);
+                onPlayerGrab?.Invoke(true);
                 movementManager.Rotate(endPosition);
                 animationManager.AttackAnim(true);
             }
@@ -114,6 +120,28 @@ public class EnemyController : MonoBehaviour, IKillableObjects
             Vector3 wanderPosition = GenerateRandomLocation(transform.position);
             movementManager.Move(wanderPosition.normalized, characterStatus.speed);
             wanderPositionTime = 0;
+        }
+    }
+
+    void SetZombiePower()
+    {
+        switch (gameController.zombiePower)
+        {
+            case 1:
+                characterStatus.speed = 7;
+                characterStatus.maxHealthPoints = 2;
+                characterStatus.currentHealth = 2;
+                break;
+            case 2:
+                characterStatus.speed = 8;
+                characterStatus.maxHealthPoints = 2;
+                characterStatus.currentHealth = 2;
+                break;
+            case 3:
+                characterStatus.speed = 9;
+                characterStatus.maxHealthPoints = 3;
+                characterStatus.currentHealth = 3;
+                break;
         }
     }
 

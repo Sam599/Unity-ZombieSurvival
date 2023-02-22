@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerController : MonoBehaviour, IKillableObjects
 {
@@ -11,18 +12,20 @@ public class PlayerController : MonoBehaviour, IKillableObjects
     private Vector3 movement;
     public GameController gameController;
     public GameObject equippedWeapon;
+    public UnityEvent OnPlayerDeath;
     public LayerMask aimingLayer;
-    private float speed;
-    private bool playerWalking;
     private bool playerAttacked;
+    private bool playerGrabbed;
+    private float initialSpeed;
 
     void Start()
     {
         animationManager = GetComponent<AnimationManager>();
         playerMovement = GetComponent<PlayerMovementManager>();
         characterStatus = GetComponent<CharactersStatus>();
-        speed = characterStatus.speed;
+        EnemyController.onPlayerGrab += PlayerGrabbed;
 
+        SetPlayerSkin();
         gameController.lifeBar.maxValue = characterStatus.maxHealthPoints;
         gameController.UpdateLifeBar(characterStatus.currentHealth);
     }
@@ -45,7 +48,7 @@ public class PlayerController : MonoBehaviour, IKillableObjects
     private void FixedUpdate()
     {
         animationManager.ShootAnim(false);
-        playerMovement.Move(movement, speed);
+        playerMovement.Move(movement, characterStatus.speed);
         Attack();
         PlayerWalking();
         playerMovement.PlayerRotate(aimingLayer);
@@ -81,6 +84,8 @@ public class PlayerController : MonoBehaviour, IKillableObjects
 
     public void Killed()
     {
+        AudioController.instance.PlayPlayerDeathSound();
+        OnPlayerDeath?.Invoke();
         gameController.PlayerDied();
     }
 
@@ -90,5 +95,28 @@ public class PlayerController : MonoBehaviour, IKillableObjects
         {
             AudioController.instance.PlayFootStepSound();
         }
+    }
+
+    void PlayerGrabbed(bool grabbed)
+    {
+        if(grabbed && !playerGrabbed)
+        {
+            //Debug.Log("Player Grabbed!");
+            initialSpeed = characterStatus.speed;
+            characterStatus.speed /= initialSpeed;
+            playerGrabbed = true;
+        }
+        else if(!grabbed && playerGrabbed)
+        {
+            //Debug.Log("Player UNGrabbed!");
+            characterStatus.speed *= initialSpeed;
+            playerGrabbed = false;
+        }
+    }
+
+    void SetPlayerSkin()
+    {
+        int skinIndex = PlayerPrefs.GetInt("SkinSelected");
+        transform.GetChild(1).GetChild(skinIndex).gameObject.SetActive(true);
     }
 }

@@ -7,17 +7,19 @@ public class AudioController : MonoBehaviour
 {
     private AudioSource audioSource;
     public static AudioController instance;
-    public AudioClip shotSound;
-    public AudioClip[] zombieDeathSound;
-    public AudioClip[] zombieSpottedSound;
-    public AudioClip[] zombieFallSound;
-    public AudioClip[] playerHitSound;
-    public AudioClip[] shellDropSound;
-    public AudioClip[] footStepSound;
-    public AudioClip[] bossSpawnSound;
-    public AudioClip[] bossAttackSound;
-    public AudioClip[] bossDeathSound;
-    public AudioClip[] bossHitSound;
+    [SerializeField] private AudioClip shotSound;
+    [SerializeField] private AudioClip gameOverMusic;
+    [SerializeField] private AudioClip[] zombieDeathSound;
+    [SerializeField] private AudioClip[] zombieSpottedSound;
+    [SerializeField] private AudioClip[] zombieFallSound;
+    [SerializeField] private AudioClip[] playerHitSound;
+    [SerializeField] private AudioClip[] playerDeathSound;
+    [SerializeField] private AudioClip[] shellDropSound;
+    [SerializeField] private AudioClip[] footStepSound;
+    [SerializeField] private AudioClip[] bossSpawnSound;
+    [SerializeField] private AudioClip[] bossAttackSound;
+    [SerializeField] private AudioClip[] bossDeathSound;
+    [SerializeField] private AudioClip[] bossHitSound;
 
     bool playerWalkingSound;
 
@@ -25,6 +27,12 @@ public class AudioController : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         instance = this;
+    }
+
+    public void GameOver()
+    {
+        audioSource.clip = gameOverMusic;
+        audioSource.Play();
     }
 
     public void PlayShotSound()
@@ -71,7 +79,10 @@ public class AudioController : MonoBehaviour
     {
         audioSource.PlayOneShot(RandomizeSound(playerHitSound));
     }
-
+    public void PlayPlayerDeathSound()
+    {
+        audioSource.PlayOneShot(RandomizeSound(playerDeathSound));
+    }
     public void PlayShellDropSound()
     {
         audioSource.PlayOneShot(RandomizeSound(shellDropSound),0.3f);

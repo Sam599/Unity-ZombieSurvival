@@ -5,11 +5,12 @@ using UnityEngine;
 
 public class ZombieGenerator : MonoBehaviour
 {
+    [SerializeField] GameObject zombiePrefab;
+    [SerializeField] GameObject bossPrefab;
+    [SerializeField] LayerMask zombieLayerMask;
+
     GameObject player;
     GameController gameController;
-    public GameObject zombiePrefab;
-    public GameObject bossPrefab;
-    public LayerMask zombieLayerMask;
     int zombieGenerateInterval;
     float generateCounter = 0;
 
@@ -20,7 +21,6 @@ public class ZombieGenerator : MonoBehaviour
         zombieGenerateInterval = Random.Range(gameController.minZombieGenerateInverval, gameController.maxZombieGenerateInverval + 1);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (gameController.generatorReady &&
@@ -30,7 +30,6 @@ public class ZombieGenerator : MonoBehaviour
         gameController.zombieLimit != gameController.numZombieGenerated)
         {
             generateCounter += Time.deltaTime;
-            //Debug.Log(zombieGenerateInterval);
 
             if (generateCounter >= zombieGenerateInterval)
             {
@@ -52,21 +51,16 @@ public class ZombieGenerator : MonoBehaviour
         if (zombieColliders.Length < 1)
         {
             GameObject spawnedEnemy = Instantiate(prefabSpawn, transform.position, transform.rotation);
-            //Debug.Log(spawnedEnemy.GetComponent<CharactersStatus>().maxHealthPoints);
+            
             if (prefabSpawn.GetComponent<CharactersStatus>().isBoss)
             {
-                //Debug.Log("Boss Generated!");
                 gameController.BossSpawned();
             }
             else
             {
-                //Debug.Log("Zombie Generated!");
                 gameController.numZombieAlive++;
                 gameController.numZombieGenerated++;
             }
-            //Debug.Log(gameController.zombiePowerMultiplier);
-            spawnedEnemy.GetComponent<CharactersStatus>().maxHealthPoints *= gameController.zombiePowerMultiplier;
-            spawnedEnemy.GetComponent<CharactersStatus>().speed *= gameController.zombiePowerMultiplier;
 
         }
         generateCounter = 0;
