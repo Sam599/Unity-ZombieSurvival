@@ -6,6 +6,8 @@ using UnityEngine.Events;
 
 public class PlayerController : MonoBehaviour, IKillableObjects
 {
+    [SerializeField] GameObject playerSkin;
+
     private PlayerMovementManager playerMovement;
     private CharactersStatus characterStatus;
     private AnimationManager animationManager;
@@ -17,6 +19,7 @@ public class PlayerController : MonoBehaviour, IKillableObjects
     private bool playerAttacked;
     private bool playerGrabbed;
     private float initialSpeed;
+    private bool isMale;
 
     void Start()
     {
@@ -58,7 +61,7 @@ public class PlayerController : MonoBehaviour, IKillableObjects
     {
         characterStatus.currentHealth -= hitDamage;
         gameController.UpdateLifeBar(characterStatus.currentHealth);
-        AudioController.instance.PlayPlayerHitSound();
+        AudioController.instance.PlayPlayerHitSound(isMale);
         //Debug.Log("Player Hit: " + characterStatus.currentHealth + "%");
         if (characterStatus.currentHealth <= 0)
         {
@@ -84,7 +87,7 @@ public class PlayerController : MonoBehaviour, IKillableObjects
 
     public void Killed()
     {
-        AudioController.instance.PlayPlayerDeathSound();
+        AudioController.instance.PlayPlayerDeathSound(isMale);
         OnPlayerDeath?.Invoke();
         gameController.PlayerDied();
     }
@@ -117,6 +120,7 @@ public class PlayerController : MonoBehaviour, IKillableObjects
     void SetPlayerSkin()
     {
         int skinIndex = PlayerPrefs.GetInt("SkinSelected");
-        transform.GetChild(1).GetChild(skinIndex).gameObject.SetActive(true);
+        playerSkin.transform.GetChild(skinIndex).gameObject.SetActive(true);
+        isMale = playerSkin.transform.GetChild(skinIndex).GetComponent<PlayerSkinGender>().isMale;
     }
 }

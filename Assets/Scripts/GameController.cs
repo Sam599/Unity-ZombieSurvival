@@ -71,14 +71,29 @@ public class GameController : MonoBehaviour
                 numZombieAlive--;
                 if (numZombieAlive == 0 && isGameProgressionActive)
                 {
-                    gameProgressMgr.CalculateZombieWave(true);
-                    UpdateWaveNumber();
+                    SetNextWave();
                 }
                 break;
             case "Boss":
                 numBossAlive--;
                 break;
         }
+    }
+
+    void SetNextWave()
+    {
+        generatorReady = false;
+        gameProgressMgr.CalculateZombieWave(true);
+        UpdateWaveNumber();
+        StartCoroutine(CallWaveAnnouncement(wave, 5));
+    }
+
+    IEnumerator CallWaveAnnouncement(int wave, float intervalToNextWave)
+    {
+        interfaceController.NextWaveAnnoucement(wave, intervalToNextWave);
+        AudioController.instance.PlayWaveSound();
+        yield return new WaitForSeconds(intervalToNextWave);
+        generatorReady = true;
     }
 
     void SetGeneratorSettings()

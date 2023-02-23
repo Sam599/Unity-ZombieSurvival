@@ -5,15 +5,18 @@ using UnityEngine.UIElements;
 
 public class EnemyController : MonoBehaviour, IKillableObjects
 {
+    [SerializeField] private float wanderInterval;
+    [SerializeField] private GameObject medkitPrefab;
+    [SerializeField] float itemDropChance;
+
     GameObject player;
     GameController gameController;
-    public GameObject medkitPrefab;
     public GameObject zombieBlood;
-    public float wanderInterval;
-    public float itemDropChance = 0.1f;
+    
     float wanderPositionTime;
     float playerDistance;
     bool playerSpotted;
+    int attackCounter = 3;
 
     private AnimationManager animationManager;
     private MovementManager movementManager;
@@ -39,15 +42,15 @@ public class EnemyController : MonoBehaviour, IKillableObjects
         MoveRotateEnemy(player.transform.position);
     }
 
-    void FallToDeath()
+    void FallToDeath() //Animation Event
     {
         AudioController.instance.PlayZombieFallSound();
-        //Debug.Log("Play Fall Sound");
     }
 
     void PlayerHit() //Animation Event
     {
         player.GetComponent<PlayerController>().TakeHit(characterStatus.hitDamage, transform);
+        attackCounter++;
     }
 
     public void TakeHit(int hitDamage, Transform objectHit)
@@ -103,9 +106,8 @@ public class EnemyController : MonoBehaviour, IKillableObjects
             }
             else
             {
-                onPlayerGrab?.Invoke(true);
                 movementManager.Rotate(endPosition);
-                animationManager.AttackAnim(true);
+                Attack();
             }
         }
         else movementManager.Move(transform.forward, 0);
@@ -145,6 +147,17 @@ public class EnemyController : MonoBehaviour, IKillableObjects
         }
     }
 
+    void Attack()
+    {
+        onPlayerGrab?.Invoke(true);
+        animationManager.AttackAnim(true);
+        if (attackCounter == 3)
+        {
+            AudioController.instance.PlayZombieAttackSound();
+            attackCounter = 0;
+        }
+    }
+
     void PlayerSpotted()
     {
         if (!playerSpotted)
@@ -156,7 +169,7 @@ public class EnemyController : MonoBehaviour, IKillableObjects
 
     Vector3 GenerateRandomLocation(Vector3 position)
     {
-        Vector3 randomLocation = position - Random.insideUnitSphere * 5;
+        Vector3 randomLocation = Random.insideUnitSphere * 5;
         randomLocation.y = position.y;
 
         return randomLocation;

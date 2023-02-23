@@ -11,6 +11,11 @@ public class MovementManager : MonoBehaviour
         moveRigidbody = GetComponent<Rigidbody>();
     }
 
+    public void MoveToPosition(Vector3 position)
+    {
+        moveRigidbody.MovePosition(position);
+    }
+
     public void Move(Vector3 movement, float speed)
     {
         moveRigidbody.velocity = movement * speed;

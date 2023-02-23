@@ -9,11 +9,16 @@ public class AudioController : MonoBehaviour
     public static AudioController instance;
     [SerializeField] private AudioClip shotSound;
     [SerializeField] private AudioClip gameOverMusic;
+    [SerializeField] private AudioClip waveSound;
     [SerializeField] private AudioClip[] zombieDeathSound;
     [SerializeField] private AudioClip[] zombieSpottedSound;
     [SerializeField] private AudioClip[] zombieFallSound;
-    [SerializeField] private AudioClip[] playerHitSound;
-    [SerializeField] private AudioClip[] playerDeathSound;
+    [SerializeField] private AudioClip[] zombieGrabSound;
+    [SerializeField] private AudioClip[] zombieAttackSound;
+    [SerializeField] private AudioClip[] playerMaleHitSound;
+    [SerializeField] private AudioClip[] playerFemaleHitSound;
+    [SerializeField] private AudioClip[] playerMaleDeathSound;
+    [SerializeField] private AudioClip[] playerFemaleDeathSound;
     [SerializeField] private AudioClip[] shellDropSound;
     [SerializeField] private AudioClip[] footStepSound;
     [SerializeField] private AudioClip[] bossSpawnSound;
@@ -40,6 +45,11 @@ public class AudioController : MonoBehaviour
         audioSource.PlayOneShot(shotSound);
     }
 
+    public void PlayWaveSound()
+    {
+        audioSource.PlayOneShot(waveSound,0.5f);
+    }
+
     public void PlayZombieDeathSound()
     {
         audioSource.PlayOneShot(RandomizeSound(zombieDeathSound),0.5f);
@@ -55,9 +65,19 @@ public class AudioController : MonoBehaviour
         audioSource.PlayOneShot(RandomizeSound(zombieFallSound), 0.5f);
     }
 
+    public void PlayZombieGrabSound()
+    {
+        audioSource.PlayOneShot(RandomizeSound(zombieGrabSound), 0.5f);
+    }
+
+    public void PlayZombieAttackSound()
+    {
+        audioSource.PlayOneShot(RandomizeSound(zombieAttackSound), 0.5f);
+    }
+
     public void PlayBossSpawnSound()
     {
-        audioSource.PlayOneShot(RandomizeSound(bossSpawnSound), 0.5f);
+        audioSource.PlayOneShot(RandomizeSound(bossSpawnSound));
     }
 
     public void PlayBossAttackSound()
@@ -75,14 +95,18 @@ public class AudioController : MonoBehaviour
         audioSource.PlayOneShot(RandomizeSound(bossHitSound), 0.5f);
     }
 
-    public void PlayPlayerHitSound()
+    public void PlayPlayerHitSound(bool isMale)
     {
-        audioSource.PlayOneShot(RandomizeSound(playerHitSound));
+        if (isMale) audioSource.PlayOneShot(RandomizeSound(playerMaleHitSound));
+        else audioSource.PlayOneShot(RandomizeSound(playerFemaleHitSound));
     }
-    public void PlayPlayerDeathSound()
+
+    public void PlayPlayerDeathSound(bool isMale)
     {
-        audioSource.PlayOneShot(RandomizeSound(playerDeathSound));
+        if (isMale) audioSource.PlayOneShot(RandomizeSound(playerMaleDeathSound));
+        else audioSource.PlayOneShot(RandomizeSound(playerFemaleDeathSound));
     }
+
     public void PlayShellDropSound()
     {
         audioSource.PlayOneShot(RandomizeSound(shellDropSound),0.3f);

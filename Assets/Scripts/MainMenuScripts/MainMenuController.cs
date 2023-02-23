@@ -33,6 +33,7 @@ public class MainMenuController : MonoBehaviour
         Debug.Log("Editor Found! Application: " + _quitApplication);
 #endif
 
+        Time.timeScale = 1;
         cameraAnimator = Camera.main.GetComponent<Animator>();
         StartCoroutine(StartSunRotation());
         SearchForPlayerSkins();

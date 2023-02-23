@@ -40,6 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4080335724653556}
   - component: {fileID: 137889728369195300}
+  - component: {fileID: 1864623837671907176}
   m_Layer: 0
   m_Name: Personagem_Sobrevivente01
   m_TagString: Untagged
@@ -131,6 +132,19 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0000017285347, y: 1.4491498, z: -0.027436674}
     m_Extent: {x: 1.6845055, y: 1.4491501, z: 0.48254043}
   m_DirtyAABB: 0
+--- !u!114 &1864623837671907176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092569260073304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca9a2509bf8c22247aeb0d2b73b7176a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMale: 1
 --- !u!1 &1112767557383588
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,6 +155,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4713277532503612}
   - component: {fileID: 137021732188699792}
+  - component: {fileID: 2047023762611419767}
   m_Layer: 0
   m_Name: Personagem_HomemSobrevivente03
   m_TagString: Untagged
@@ -232,6 +247,19 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0000017285347, y: 1.5096691, z: -0.12323505}
     m_Extent: {x: 1.6845055, y: 1.5096693, z: 0.530952}
   m_DirtyAABB: 0
+--- !u!114 &2047023762611419767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112767557383588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca9a2509bf8c22247aeb0d2b73b7176a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMale: 1
 --- !u!1 &1131389239643410
 GameObject:
   m_ObjectHideFlags: 0
@@ -335,6 +363,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4991083426999982}
   - component: {fileID: 137910345397819822}
+  - component: {fileID: 930995462839061619}
   m_Layer: 0
   m_Name: Personagem_MulherSoldado
   m_TagString: Untagged
@@ -426,6 +455,19 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0000017285347, y: 1.41348, z: -0.07679981}
     m_Extent: {x: 1.6845055, y: 1.4134803, z: 0.4339838}
   m_DirtyAABB: 0
+--- !u!114 &930995462839061619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1198678416617702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca9a2509bf8c22247aeb0d2b73b7176a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMale: 0
 --- !u!1 &1202452044978188
 GameObject:
   m_ObjectHideFlags: 0
@@ -467,6 +509,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4925541059680036}
   - component: {fileID: 137741192970036666}
+  - component: {fileID: 4641234747643309208}
   m_Layer: 0
   m_Name: Personagem_Xerife
   m_TagString: Untagged
@@ -558,6 +601,19 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0000017285347, y: 1.5548607, z: 0.01634258}
     m_Extent: {x: 1.6845055, y: 1.554861, z: 0.55129623}
   m_DirtyAABB: 0
+--- !u!114 &4641234747643309208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1204197352885920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca9a2509bf8c22247aeb0d2b73b7176a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMale: 1
 --- !u!1 &1210332277357288
 GameObject:
   m_ObjectHideFlags: 0
@@ -601,6 +657,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4758675020849470}
   - component: {fileID: 137246446707503288}
+  - component: {fileID: 1421460220816991454}
   m_Layer: 0
   m_Name: Personagem_Heroina
   m_TagString: Untagged
@@ -692,6 +749,19 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0000017881393, y: 1.41348, z: -0.16149211}
     m_Extent: {x: 1.6845053, y: 1.4134803, z: 0.57828265}
   m_DirtyAABB: 0
+--- !u!114 &1421460220816991454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1217509271739582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca9a2509bf8c22247aeb0d2b73b7176a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMale: 0
 --- !u!1 &1234923303857446
 GameObject:
   m_ObjectHideFlags: 0
@@ -702,6 +772,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4267594272736878}
   - component: {fileID: 137724870055391566}
+  - component: {fileID: 8210588419646987366}
   m_Layer: 0
   m_Name: Personagem_Medico
   m_TagString: Untagged
@@ -793,6 +864,19 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0000017285347, y: 1.5026927, z: 0.030932665}
     m_Extent: {x: 1.6845055, y: 1.5026929, z: 0.3848495}
   m_DirtyAABB: 0
+--- !u!114 &8210588419646987366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1234923303857446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca9a2509bf8c22247aeb0d2b73b7176a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMale: 1
 --- !u!1 &1245651341487126
 GameObject:
   m_ObjectHideFlags: 0
@@ -834,6 +918,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4099084304122138}
   - component: {fileID: 137608013592728746}
+  - component: {fileID: 1584089785116045954}
   m_Layer: 0
   m_Name: Personagem_HomemCasaco
   m_TagString: Untagged
@@ -925,6 +1010,19 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0000017881393, y: 1.41348, z: -0.059862554}
     m_Extent: {x: 1.6845053, y: 1.4134803, z: 0.48420048}
   m_DirtyAABB: 0
+--- !u!114 &1584089785116045954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1266890834623104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca9a2509bf8c22247aeb0d2b73b7176a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMale: 1
 --- !u!1 &1275656966363746
 GameObject:
   m_ObjectHideFlags: 0
@@ -935,6 +1033,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4714040747767512}
   - component: {fileID: 137379840173566790}
+  - component: {fileID: 7930989409134195246}
   m_Layer: 0
   m_Name: Personagem_Piromaniaca
   m_TagString: Untagged
@@ -1026,6 +1125,19 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0000017881393, y: 1.4888654, z: -0.16820133}
     m_Extent: {x: 1.6845053, y: 1.4888656, z: 0.7059518}
   m_DirtyAABB: 0
+--- !u!114 &7930989409134195246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1275656966363746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca9a2509bf8c22247aeb0d2b73b7176a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMale: 0
 --- !u!1 &1338693728128746
 GameObject:
   m_ObjectHideFlags: 0
@@ -1067,6 +1179,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4789171435226948}
   - component: {fileID: 137290744302117694}
+  - component: {fileID: 4507830555518802638}
   m_Layer: 0
   m_Name: Personagem_Construtor
   m_TagString: Untagged
@@ -1158,6 +1271,19 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0000017285347, y: 1.5289034, z: 0.06453794}
     m_Extent: {x: 1.6845055, y: 1.5289036, z: 0.53112626}
   m_DirtyAABB: 0
+--- !u!114 &4507830555518802638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1360408787364202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca9a2509bf8c22247aeb0d2b73b7176a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMale: 1
 --- !u!1 &1440457283066486
 GameObject:
   m_ObjectHideFlags: 0
@@ -1168,6 +1294,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4186793678751870}
   - component: {fileID: 137621026649000168}
+  - component: {fileID: 4540721202102339236}
   m_Layer: 0
   m_Name: Personagem_HomemSobrevivente01
   m_TagString: Untagged
@@ -1259,6 +1386,19 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0000017285347, y: 1.41348, z: 0.0016335845}
     m_Extent: {x: 1.6845055, y: 1.4134803, z: 0.35555044}
   m_DirtyAABB: 0
+--- !u!114 &4540721202102339236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440457283066486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca9a2509bf8c22247aeb0d2b73b7176a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMale: 1
 --- !u!1 &1448898656065132
 GameObject:
   m_ObjectHideFlags: 0
@@ -1330,6 +1470,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4985914806915658}
   - component: {fileID: 137480551158315556}
+  - component: {fileID: 9072424377601341753}
   m_Layer: 0
   m_Name: Personagem_RiscoBiologico
   m_TagString: Untagged
@@ -1421,6 +1562,19 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0000017285347, y: 1.41348, z: -0.11796078}
     m_Extent: {x: 1.6845055, y: 1.4134803, z: 0.5762559}
   m_DirtyAABB: 0
+--- !u!114 &9072424377601341753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1482382854480700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca9a2509bf8c22247aeb0d2b73b7176a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMale: 1
 --- !u!1 &1489023121390002
 GameObject:
   m_ObjectHideFlags: 0
@@ -1461,6 +1615,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4188126387179866}
   - component: {fileID: 137644399705727768}
+  - component: {fileID: 8974100715301449597}
   m_Layer: 0
   m_Name: Personagem_Explorador
   m_TagString: Untagged
@@ -1552,6 +1707,19 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0000017285347, y: 1.496501, z: 0.08290869}
     m_Extent: {x: 1.6845055, y: 1.4965012, z: 0.5957791}
   m_DirtyAABB: 0
+--- !u!114 &8974100715301449597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1523792204703924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca9a2509bf8c22247aeb0d2b73b7176a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMale: 1
 --- !u!1 &1561200844966250
 GameObject:
   m_ObjectHideFlags: 0
@@ -1562,6 +1730,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4188501711088542}
   - component: {fileID: 137216207733088666}
+  - component: {fileID: 5854823576281009170}
   m_Layer: 0
   m_Name: Personagem_Machucado
   m_TagString: Untagged
@@ -1653,6 +1822,19 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0000017285347, y: 1.41348, z: 0.0016335845}
     m_Extent: {x: 1.6845055, y: 1.4134803, z: 0.35555047}
   m_DirtyAABB: 0
+--- !u!114 &5854823576281009170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561200844966250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca9a2509bf8c22247aeb0d2b73b7176a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMale: 1
 --- !u!1 &1568859875956644
 GameObject:
   m_ObjectHideFlags: 0
@@ -1727,6 +1909,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4889303885513786}
   - component: {fileID: 137378452613473012}
+  - component: {fileID: 2326457173364053795}
   m_Layer: 0
   m_Name: Personagem_MulherCasaco
   m_TagString: Untagged
@@ -1818,6 +2001,19 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0000017285347, y: 1.5362006, z: 0}
     m_Extent: {x: 1.6845055, y: 1.5362009, z: 0.64685035}
   m_DirtyAABB: 0
+--- !u!114 &2326457173364053795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1622715183537144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca9a2509bf8c22247aeb0d2b73b7176a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMale: 0
 --- !u!1 &1653890432295078
 GameObject:
   m_ObjectHideFlags: 0
@@ -1828,6 +2024,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4113226698308308}
   - component: {fileID: 137669233048159832}
+  - component: {fileID: 1363125801506621017}
   m_Layer: 0
   m_Name: Personagem_SobreviventeExperiente
   m_TagString: Untagged
@@ -1919,6 +2116,19 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0000017881393, y: 1.41348, z: -0.09343952}
     m_Extent: {x: 1.6845053, y: 1.4134803, z: 0.4506235}
   m_DirtyAABB: 0
+--- !u!114 &1363125801506621017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1653890432295078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca9a2509bf8c22247aeb0d2b73b7176a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMale: 1
 --- !u!1 &1663757781453384
 GameObject:
   m_ObjectHideFlags: 0
@@ -1929,6 +2139,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4705359829829376}
   - component: {fileID: 137413830000369300}
+  - component: {fileID: 2271008474985817886}
   m_Layer: 0
   m_Name: Personagem_HomemSobrevivente02
   m_TagString: Untagged
@@ -2020,6 +2231,19 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0000017285347, y: 1.41348, z: 0.0016335845}
     m_Extent: {x: 1.6845055, y: 1.4134803, z: 0.35555044}
   m_DirtyAABB: 0
+--- !u!114 &2271008474985817886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663757781453384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca9a2509bf8c22247aeb0d2b73b7176a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMale: 1
 --- !u!1 &1672929012099098
 GameObject:
   m_ObjectHideFlags: 0
@@ -2092,6 +2316,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4984660215423234}
   - component: {fileID: 137965576680068098}
+  - component: {fileID: 8872584865436490349}
   m_Layer: 0
   m_Name: Personagem_Fazendeiro
   m_TagString: Untagged
@@ -2183,6 +2408,19 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0000017285347, y: 1.535759, z: -0.009272039}
     m_Extent: {x: 1.6845055, y: 1.5357592, z: 0.5966818}
   m_DirtyAABB: 0
+--- !u!114 &8872584865436490349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1769124319515000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca9a2509bf8c22247aeb0d2b73b7176a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMale: 1
 --- !u!1 &1811217317003536
 GameObject:
   m_ObjectHideFlags: 0
@@ -2193,6 +2431,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4793185338049844}
   - component: {fileID: 137569481999106770}
+  - component: {fileID: 2521823537685715427}
   m_Layer: 0
   m_Name: Personagem_Prisioneiro
   m_TagString: Untagged
@@ -2284,6 +2523,19 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0000017285347, y: 1.41348, z: -0.052691877}
     m_Extent: {x: 1.6845055, y: 1.4134803, z: 0.40987587}
   m_DirtyAABB: 0
+--- !u!114 &2521823537685715427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1811217317003536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca9a2509bf8c22247aeb0d2b73b7176a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMale: 1
 --- !u!1 &1826628698535848
 GameObject:
   m_ObjectHideFlags: 0
@@ -2294,6 +2546,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4264394270513132}
   - component: {fileID: 137403738496150446}
+  - component: {fileID: 6783497386518735307}
   m_Layer: 0
   m_Name: Personagem_Cacador
   m_TagString: Untagged
@@ -2385,6 +2638,19 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0000017285347, y: 1.4989816, z: 0.1390103}
     m_Extent: {x: 1.6845055, y: 1.4989818, z: 0.5396775}
   m_DirtyAABB: 0
+--- !u!114 &6783497386518735307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1826628698535848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca9a2509bf8c22247aeb0d2b73b7176a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMale: 1
 --- !u!1 &1852964328854238
 GameObject:
   m_ObjectHideFlags: 0
@@ -2425,6 +2691,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4599407173259162}
   - component: {fileID: 137977593869781606}
+  - component: {fileID: 2704820631964239186}
   m_Layer: 0
   m_Name: Personagem_Perigo
   m_TagString: Untagged
@@ -2516,6 +2783,19 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0000017881393, y: 1.41348, z: 0.028950363}
     m_Extent: {x: 1.6845053, y: 1.4134803, z: 0.72316706}
   m_DirtyAABB: 0
+--- !u!114 &2704820631964239186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869059355246864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca9a2509bf8c22247aeb0d2b73b7176a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMale: 1
 --- !u!1 &1884102019447498
 GameObject:
   m_ObjectHideFlags: 0
@@ -2603,6 +2883,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 925aad5a212ea4b4e9c090419bc528cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSkin: {fileID: 0}
   gameController: {fileID: 0}
   equippedWeapon: {fileID: 1517127189136885}
   OnPlayerDeath:
@@ -2768,6 +3049,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4725317961484282}
   - component: {fileID: 137505279576287856}
+  - component: {fileID: 3509132529125211770}
   m_Layer: 0
   m_Name: Personagem_Empresario
   m_TagString: Untagged
@@ -2859,6 +3141,19 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0000017881393, y: 1.41348, z: 0.0016335249}
     m_Extent: {x: 1.6845053, y: 1.4134803, z: 0.35555047}
   m_DirtyAABB: 0
+--- !u!114 &3509132529125211770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1977371512715714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca9a2509bf8c22247aeb0d2b73b7176a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMale: 1
 --- !u!1 &1998859620506996
 GameObject:
   m_ObjectHideFlags: 0
@@ -2869,6 +3164,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4291617824478412}
   - component: {fileID: 137155101904718838}
+  - component: {fileID: 2616647752970439055}
   m_Layer: 0
   m_Name: Personagem_HomemCasaco
   m_TagString: Untagged
@@ -2960,6 +3256,19 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0000017285347, y: 1.3955255, z: 0.03416568}
     m_Extent: {x: 1.6845055, y: 1.3955257, z: 0.5929845}
   m_DirtyAABB: 0
+--- !u!114 &2616647752970439055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1998859620506996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca9a2509bf8c22247aeb0d2b73b7176a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMale: 1
 --- !u!1 &7627176880004451672
 GameObject:
   m_ObjectHideFlags: 0

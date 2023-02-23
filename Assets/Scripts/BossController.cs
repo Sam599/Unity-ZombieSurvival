@@ -35,7 +35,7 @@ public class BossController : MonoBehaviour , IKillableObjects
             animationManager.MovementAnim(agent.velocity.magnitude);
             
             if (agent.hasPath && agent.remainingDistance <= agent.stoppingDistance) {
-                Debug.Log(agent.remainingDistance);
+                //Debug.Log(agent.remainingDistance);
                 animationManager.AttackAnim(true);
                 Vector3 playerDirection = player.position - transform.position;
                 transform.rotation = Quaternion.LookRotation(playerDirection);

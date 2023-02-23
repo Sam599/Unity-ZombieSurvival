@@ -7,8 +7,12 @@ public class InterfaceController : MonoBehaviour
 {
     GameObject player;
     GameObject[] boss;
-    public Text bossSpawnedText;
+    [SerializeField] private Text bossSpawnedText;
+    [SerializeField] private Text waveText;
+    [SerializeField] private Text waveNumber;
+    [SerializeField] private Text zombiePowerText;
     private CharactersStatus characterStatus;
+    private bool waveAnnounced;
 
     // Start is called before the first frame update
     void Start()
@@ -39,13 +43,26 @@ public class InterfaceController : MonoBehaviour
         //Debug.Log(string.Format("Life Bar Updated, {0}, {1}, {2}", lifeBar.maxValue, lifeBar.value, lifeRemaning));
     }
 
-    public void BossHasAppeared()
+    public void NextWaveAnnoucement(int wave, float annoucementTime)
     {
-        StartCoroutine(FadeOutText(bossSpawnedText, 3));
+        waveNumber.text = wave.ToString();
+        StartCoroutine(FadeOutText(waveText, annoucementTime, 0));
+        StartCoroutine(FadeOutText(waveNumber, annoucementTime, 0));
     }
 
-    IEnumerator FadeOutText(Text text, float fadeTime)
+    public void ShowZombiePowerText()
     {
+        StartCoroutine(FadeOutText(zombiePowerText, 4, 1));
+    }
+
+    public void BossHasAppeared()
+    {
+        StartCoroutine(FadeOutText(bossSpawnedText, 3, 0));
+    }
+
+    IEnumerator FadeOutText(Text text, float fadeTime, float beginTime)
+    {
+        yield return new WaitForSeconds(beginTime);
         text.gameObject.SetActive(true);
         float timePassed = 0;
         Color originalColor = text.color;

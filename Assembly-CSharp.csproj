@@ -75,6 +75,7 @@
     <Compile Include="Assets\Scripts\PlayerMovementManager.cs" />
     <Compile Include="Assets\Scripts\BulletController.cs" />
     <Compile Include="Assets\Scripts\IKillableObjects.cs" />
+    <Compile Include="Assets\Scripts\PlayerSkinGender.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Modelos3D\Personagens\Animacoes\Animacoes.txt" />

@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameProgressionManager : MonoBehaviour
 {
     // Start is called before the first frame update
 
     [SerializeField] private GameController gameController;
-    
+    public UnityEvent onZombiePowerEvent;
+
     int bossWaveCounter = 1;
     int zombieLimit;
     int waveZombiePowerCount = 0;
@@ -57,7 +59,8 @@ public class GameProgressionManager : MonoBehaviour
             waveCounter = 1;
             powerUpCount++;
             gameController.zombiePower = powerUpCount;
-            Debug.Log("Zombie Power Increased! PowerUpCount: " + gameController.zombiePower);
+            onZombiePowerEvent.Invoke();
+            //Debug.Log("Zombie Power Increased! PowerUpCount: " + gameController.zombiePower);
         }
     }
 }

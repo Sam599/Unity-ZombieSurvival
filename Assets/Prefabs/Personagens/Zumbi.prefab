@@ -661,10 +661,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7fad8454c65ce64f84d7c9614b68b46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  medkitPrefab: {fileID: 1060151288946202, guid: 6150c6f66b7034ec5b3672478195682a, type: 3}
-  zombieBlood: {fileID: 4088740018476510477, guid: f7f785a0433df1249b482fb1e1239fe6, type: 3}
   wanderInterval: 5
-  itemDropChance: 0.2
+  medkitPrefab: {fileID: 1060151288946202, guid: 6150c6f66b7034ec5b3672478195682a, type: 3}
+  itemDropChance: 0.1
+  zombieBlood: {fileID: 4088740018476510477, guid: f7f785a0433df1249b482fb1e1239fe6, type: 3}
 --- !u!114 &-1106488230061929239
 MonoBehaviour:
   m_ObjectHideFlags: 0
